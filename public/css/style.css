@@ -47,12 +47,30 @@ body {
     display: flex
 }
 
-ul,
-li {
+
+#navigation-list,
+#footer-list {
     list-style: none;
+    padding-top: 1em;
+}
+
+#navigation-list > li,
+#footer-list > li {
     display: inline;
     padding: 1em;
 }
+
+.main-content > ol,
+.main-content > li {
+    /* list-style: none; */
+    /* display: inline; */
+    padding: 1em;
+}
+
+.main-content > ol > li {
+    padding-bottom: 1em;
+}
+
 
 
 /* ALL MAIN CONTENT */
@@ -70,6 +88,10 @@ li {
     flex-flow: column;
     width:60%;
     padding: 2em;
+}
+
+.main-content > h1 {
+    padding-bottom: 1em;
 }
 
 .footer {

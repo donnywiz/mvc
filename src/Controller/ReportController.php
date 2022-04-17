@@ -45,14 +45,17 @@ class ReportController extends AbstractController
     }
 
     /**
-     * @Route("/report/kmom01", name="kmom01")
+     * @Route("/report/kmom/{mom}", name="kmom")
      */
-    public function kmom(): Response
-    {
-        $title = "kmom01";
 
-        return $this->render('report.html.twig', [
+    public function kmom(string $mom): Response
+    {
+        $title = "kmom" . $mom;
+        $page = 'kmom' . $mom . ".markdown.twig";
+
+        return $this->render('kmom.html.twig', [
             'title' => $title,
+            'page' => $page
         ]);
     }
 }
