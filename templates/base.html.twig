@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}davs21{% endblock %}</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-bar">
+            <div class="header-title" title="king">
+                <h1>davs21.</h1>
+            </div>
+
+            <div class="header-navigation">
+
+                {% include 'incl/nav.html.twig' %}
+
+            </div>
+
+        </div>
+    </div>
+
+
+        <div class="main">
+
+        <!-- start of main content -->
+            {% block content %}
+            Default
+            {% endblock %}
+        <!-- end of main content -->
+
+        </div>
+
+
+        <div class="footer">
+        {% include 'incl/footer.html.twig' %}
+        </div>
+
+    </div>
+
+</body>
+</html>
