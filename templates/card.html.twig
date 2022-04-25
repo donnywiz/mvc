@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Card Game{% endblock%}
+
+
+{% block content %}
+<div class="main-content">
+
+<h1> {{ title }} </h1>
+
+<ul>
+    <li>
+        <a href="{{ url("deck") }}">/deck</a>
+    </li>
+
+    <li>
+        <a href="{{ url("shuffle") }}">/deck/shuffle</a>
+    </li>
+
+    <li>
+        <a href="{{ url("draw") }}">/deck/draw</a>
+    </li>
+
+</ul>
+
+</div>
+{% endblock %}
