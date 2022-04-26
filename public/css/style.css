@@ -10,6 +10,7 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: #f5f5f5;
+    /* background-color: #0941e2; */
     color: #1e1e1e;
 }
 
@@ -40,6 +41,15 @@ body {
 /* INCLUDE TITLE IN HAEDER */
 .header-title {
     display: flex
+}
+
+.header-title > h1 {
+    font-size: 48px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    color: white;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: blue;
 }
 
 /* INCLUDE NAVBAR IN HEADER */
@@ -114,7 +124,7 @@ p {
 
 a:link,
 a:visited {
-    color: blue;
+    color: #394eff;
     text-decoration: none;
 }
 
