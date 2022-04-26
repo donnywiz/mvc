@@ -15,8 +15,12 @@ class CardController extends AbstractController
     {
         $title = "Black Jack";
 
+        $object = new \App\Card\Card();
+        $value = $object->getName();
+
         return $this->render('card.html.twig', [
             'title' => $title,
+            'name' => $value
         ]);
     }
 
@@ -57,11 +61,35 @@ class CardController extends AbstractController
     }
 
     /**
-     * @Route("/card/deck/draw/{number}", name="drawNumber")
+     * @Route("/card/deck/draw/{number}", name="draw_number", requirements={"page"="\d+"})
      */
-    public function drawCardNumber(string $number): Response
+    public function drawCardNumber(int $number = 1): Response
     {
-        $title = "Draw" . $number;
+        $title = "Draw " . $number;
+
+        return $this->render('card.html.twig', [
+            'title' => $title,
+        ]);
+    }
+
+    /**
+     * @Route("/card/deck/deal/{players}/{cards}", name="deal_players")
+     */
+    public function dealPlayers(int $players = 1, int $cards = 1): Response
+    {
+        $title = "Deal " . $players ." players ". $cards . " cards";
+
+        return $this->render('card.html.twig', [
+            'title' => $title,
+        ]);
+    }
+
+    /**
+     * @Route("/card/deck2", name="deck2")
+     */
+    public function deck2(): Response
+    {
+        $title = "Deck2";
 
         return $this->render('card.html.twig', [
             'title' => $title,
