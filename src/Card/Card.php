@@ -4,19 +4,27 @@ namespace App\Card;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class Card extends AbstractController
+class Card
 {
+
+    private $suit;
+    private $rank;
     private $value;
 
-    public function __construct()
+     /**
+      * Constructor method to assign values when initiating object.
+      *
+      * @param string suit,  string rank int value
+      * @return void
+      */
+    public function __construct($suits = '0', $rank = '0', $value = 0)
     {
-        $this->value = 'Daniel';
-    }
+        $this->suits = $suits;
+        $this->rank = $rank;
+        $this->value = $value;
 
-    public function getName(): string
-    {
-        return $this->value;
     }
 }

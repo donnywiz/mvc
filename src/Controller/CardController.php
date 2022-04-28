@@ -14,13 +14,18 @@ class CardController extends AbstractController
     public function showCard(): Response
     {
         $title = "Black Jack";
+        $card = new \App\Card\Card();
 
-        $object = new \App\Card\Card();
-        $value = $object->getName();
+        $deck = new \App\Card\Deck();
+        $deck->createDeck($card);
+        $data = [
+            'showDeck' => $deck->showDeck()
+        ];
+
 
         return $this->render('card.html.twig', [
             'title' => $title,
-            'name' => $value
+            'deck' => $deck,
         ]);
     }
 
