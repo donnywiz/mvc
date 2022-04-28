@@ -12,22 +12,33 @@ use App\Card\Card;
 class Deck
 {
 
-    private $cards = [];
+    private $deck = [];
 
-
-    public function __construct()
-    {
-        $this->cards = [];
-    }
 
     /**
-    * Create deck.
-    * Iterare through list to create suit/rank/value for each card.
-    *
-    * @param none
-    * @return void
-    */
-    public function createDeck(Card $deck): void
+     * Constructor method to create an empty array deck
+     *
+     * @param none
+     * @return void
+     *
+     */
+    public function __construct()
+    {
+        $this->deck = [];
+    }
+
+
+
+    /**
+     * Create deck.
+     * Method to create a deck of cards. Iterates through arrays of suits,
+     * ranks and values. Receives object and calls method to create card.
+     * Pushes object/array to private array deck in class.
+     *
+     * @param object
+     * @return void
+     */
+    public function createDeck(Card $card): void
     {
         $suits = array('clubs', 'diamonds', 'hearts', 'spades');
         $ranks = array('2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace');
@@ -35,28 +46,41 @@ class Deck
 
         for ($i = 0; $i < count($suits); $i++) {
             for ($j = 0; $j < count($ranks); $j++) {
-                $this->cards = $deck->suits[$i];
-                $this->cards = ranks[$j];
-                $deck->value[$j];
+
+                $object = $card->createCard($suits[$i], $ranks[$j], $values[$j]);
+
+                array_push($this->deck, $object);
             }
         }
     }
 
-    public function showDeck()
-    {
-        return $this->cards;
-    }
-
     /**
-     * Create deck.
-     * Add text here.
+     * Show deck.
+     * Method to return all objects in array deck.
      *
      * @param none
      * @return void
      */
-    public function shuffleDeck()
+    public function showDeck(): array
     {
+        return $this->deck;
+    }
 
+    /**
+     * Shuffle deck.
+     * Method to shuffle deck.
+     *
+     * @param none
+     * @return void
+     */
+    public function shuffleDeck(): void
+    {
+        if (count($this->deck) < 51) {
+            echo "cant shuffle deck, too few cards";
+        }
+        else {
+            shuffle($this->deck);
+        }
     }
 
 }

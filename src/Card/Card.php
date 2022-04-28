@@ -10,21 +10,28 @@ use Symfony\Component\Routing\Annotation\Route;
 class Card
 {
 
-    private $suit;
-    private $rank;
-    private $value;
+    private $card;
 
-     /**
-      * Constructor method to assign values when initiating object.
-      *
-      * @param string suit,  string rank int value
-      * @return void
-      */
-    public function __construct($suits = '0', $rank = '0', $value = 0)
+    /**
+     * Create card.
+     * Method to create a single card and store obnject as an array
+     * Return object as an array
+     *
+     * @param string suit, string rank int value
+     * @return array
+     */
+    public function createCard($suit, $rank, $value): array
     {
-        $this->suits = $suits;
-        $this->rank = $rank;
-        $this->value = $value;
+        // $this->card["suits"] = $suits;
+        // $this->rank["rank"] = $rank;
+        // $this->value["value"] = $value;
 
+        $this->card = array(
+            "suit" => $suit,
+            "rank" => $rank,
+            "value" => $value,
+        );
+
+        return $this->card;
     }
 }
