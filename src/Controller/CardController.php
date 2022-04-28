@@ -18,14 +18,15 @@ class CardController extends AbstractController
 
         $deck = new \App\Card\Deck();
         $deck->createDeck($card);
+        $deck->shuffleDeck();
         $data = [
-            'showDeck' => $deck->showDeck()
+            'showDeck' => $deck->showDeck(),
         ];
 
 
         return $this->render('card.html.twig', [
             'title' => $title,
-            'deck' => $deck,
+            'data' => $data,
         ]);
     }
 
