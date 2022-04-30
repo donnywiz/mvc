@@ -1,0 +1,20 @@
+/* CONTAINER FOR DECK */
+.deck-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+.clubs,
+.diamonds,
+.hearts,
+.spades {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#suit-header {
+    font-weight: bold;
+    color: blue;
+}

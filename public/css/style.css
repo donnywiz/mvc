@@ -1,3 +1,7 @@
+@import 'form.css';
+@import 'flash.css';
+@import 'deck.css';
+
 * {
     box-sizing: border-box;
     border: 0 none;
@@ -7,7 +11,7 @@
 
 html,
 body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: #f5f5f5;
     /* background-color: #0941e2; */
