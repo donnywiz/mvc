@@ -20,7 +20,7 @@
         <a href="{{ url("draw") }}">card/deck/draw</a>
     </li>
     <li>
-        <a href="{{ url("draw_number") }}">card/deck/draw/:number</a>
+        <a href="{{ url("draw") }}">card/deck/draw/:number</a>
     </li>
     <li>
     <a href="{{ url("deal_players") }}">card/deck/deal/:players/:cards</a>
@@ -30,7 +30,6 @@
     </li>
 </ul>
 
-{{ dump(data.showDeck) }}
 
 </div>
 {% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session{% endblock%}
+
+
+{% block content %}
+<div class="main-content">
+
+<h1> {{ title }} </h1>
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+
+<div class="container">
+    <div class="card">
+		<form class="card-form" metod="post">
+			<div class="input">
+				<input type="text" class="input-field" value="" name="user" required/>
+				<label class="input-label">Full name</label>
+			</div>
+			<div class="input">
+				<input type="text" class="input-field" value="" name="email" required/>
+				<label class="input-label">Email</label>
+			</div>
+			<div class="input">
+				<input type="password" class="input-field" name="pwd" required/>
+				<label class="input-label">Password</label>
+			</div>
+			<div class="action">
+				<button class="action-button" type="submit" value="login">Get started</button>
+			</div>
+		</form>
+		<div class="card-info">
+			<p>By signing up you are agreeing to our <a href="#">Terms and Conditions</a></p>
+		</div>
+	</div>
+</div>
+
+
+</div>
+{% endblock %}
