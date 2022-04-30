@@ -4,77 +4,94 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 
 class CardController extends AbstractController
 {
     /**
-     * @Route("/card", name="card")
+     * @Route("/card/", name="card")
      */
-    public function showCard(): Response
+    public function card(): Response
     {
-        $title = "Black Jack";
-        $card = new \App\Card\Card();
+        $title = "kmom02 / card game";
 
-        $deck = new \App\Card\Deck();
-        $deck->createDeck($card);
-        $deck->shuffleDeck();
-        $data = [
-            'showDeck' => $deck->showDeck(),
-        ];
-
-
-        return $this->render('card.html.twig', [
+        return $this->render('deck/card.html.twig', [
             'title' => $title,
-            'data' => $data,
         ]);
     }
 
     /**
      * @Route("/card/deck", name="deck")
      */
-    public function showDeck(): Response
+    public function showDeck(SessionInterface $session): Response
     {
-        $title = "Deck";
+        $title = "Deck, unshuffled and sorted";
 
-        return $this->render('card.html.twig', [
+        # initialize objects
+        $cardObject = new \App\Card\Card();
+        $deckObject = new \App\Card\Deck();
+
+        # inject object to class/method
+        $deckObject->createDeck($cardObject);
+        $session->set("deck", $deckObject);
+
+        $deck = $deckObject->getDeck();
+
+        $data = [
+            'showDeck' => $deck,
+        ];
+
+        return $this->render('deck/deck.html.twig', [
             'title' => $title,
+            'data' => $data,
         ]);
     }
 
     /**
      * @Route("/card/deck/shuffle", name="shuffle")
      */
-    public function shuffleCards(): Response
+    public function shuffleCards(SessionInterface $session): Response
     {
         $title = "Shuffle";
 
-        return $this->render('card.html.twig', [
+        $deck = $session->get('deck');
+        $deck->shuffleDeck();
+        $shuffledDeck = $deck->getDeck();
+
+
+        $data = [
+            'showDeck' => $shuffledDeck,
+        ];
+
+        return $this->render('deck/deck.html.twig', [
             'title' => $title,
+            'data' => $data,
         ]);
     }
 
     /**
-     * @Route("/card/deck/draw", name="draw")
+     * @Route("/card/deck/draw/{number}",
+     * name="draw",
+     * )
      */
-    public function drawCard(): Response
+    public function drawCard(SessionInterface $session, int $number = 1): Response
     {
         $title = "Draw";
 
-        return $this->render('card.html.twig', [
-            'title' => $title,
-        ]);
-    }
+        $deckObject = $session->get('deck');
+        $deck = $deckObject->drawCard($number);
 
-    /**
-     * @Route("/card/deck/draw/{number}", name="draw_number", requirements={"page"="\d+"})
-     */
-    public function drawCardNumber(int $number = 1): Response
-    {
-        $title = "Draw " . $number;
 
-        return $this->render('card.html.twig', [
+        $data = [
+            'cards' => $deck,
+        ];
+
+        return $this->render('deck/draw_card.html.twig', [
             'title' => $title,
+            'data' => $data,
         ]);
     }
 
@@ -85,7 +102,7 @@ class CardController extends AbstractController
     {
         $title = "Deal " . $players ." players ". $cards . " cards";
 
-        return $this->render('card.html.twig', [
+        return $this->render('deck/card.html.twig', [
             'title' => $title,
         ]);
     }
@@ -97,8 +114,26 @@ class CardController extends AbstractController
     {
         $title = "Deck2";
 
-        return $this->render('card.html.twig', [
+        return $this->render('deck/card.html.twig', [
             'title' => $title,
         ]);
+    }
+
+    /**
+     * @Route("/card/api/deck", name="api_deck")
+     */
+    public function getDeck(): Response
+    {
+        $title = "Deck";
+
+        # initialize objects
+        $cardObject = new \App\Card\Card();
+        $deckObject = new \App\Card\Deck();
+
+        # inject object to class/method
+        $deckObject->createDeck($cardObject);
+        $data = $decObjectk->showDeck();
+
+        return $this->json($data);
     }
 }

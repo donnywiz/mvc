@@ -40,6 +40,9 @@ class Deck
      */
     public function createDeck(Card $card): void
     {
+
+        $this->deck = [];
+
         $suits = array('clubs', 'diamonds', 'hearts', 'spades');
         $ranks = array('2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace');
         $values = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
@@ -55,13 +58,13 @@ class Deck
     }
 
     /**
-     * Show deck.
+     * Get deck.
      * Method to return all objects in array deck.
      *
      * @param none
      * @return void
      */
-    public function showDeck(): array
+    public function getDeck(): array
     {
         return $this->deck;
     }
@@ -83,4 +86,22 @@ class Deck
         }
     }
 
+    /**
+     * Draw card from deck.
+     * Method to draw a signle card from deck.
+     *
+     * @param none
+     * @return array
+     */
+    public function drawCard(int $numberOfCards = 1): array
+    {
+        $cards = [];
+
+        for ($i = 0; $i < $numberOfCards; $i++) {
+            $card = array_shift($this->deck);
+            array_push($cards, $card);
+        }
+        return $cards;
+
+    }
 }
