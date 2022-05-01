@@ -1,0 +1,24 @@
+
+/* TYPOGRAPHY  */
+p {
+    padding-top: 0.5em;
+}
+
+a:link,
+a:visited {
+    color: #394eff;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+body {
+    font-family: monospace;
+}
+
+ol > li > strong {
+    color: #d32500;
+}
