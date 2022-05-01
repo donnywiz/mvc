@@ -40,7 +40,7 @@ class Players
             $this->cardhand[$player] = $cards;
 
         }
-        var_dump($this->cardhand);
+        // var_dump($this->cardhand);
     }
 
     /**

@@ -52,7 +52,7 @@ class Deck2 extends Deck
         $this->deck2 = parent::createDeck();
         $harlequins = ['harlequin', 'harlequin'];
         array_push($this->deck2, $harlequins);
-        var_dump($this->deck2);
+        // var_dump($this->deck2);
     }
 
     public function getDeck(): array
