@@ -45,7 +45,7 @@ class Deck
 
         $suits = array('clubs', 'diamonds', 'hearts', 'spades');
         $ranks = array('2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace');
-        $values = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+        $values = array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
 
         for ($i = 0; $i < count($suits); $i++) {
             for ($j = 0; $j < count($ranks); $j++) {
@@ -98,10 +98,28 @@ class Deck
         $cards = [];
 
         for ($i = 0; $i < $numberOfCards; $i++) {
-            $card = array_shift($this->deck);
-            array_push($cards, $card);
+
+            if ($this->deckCount() == 0) {
+                break;
+            } else {
+                $card = array_shift($this->deck);
+                array_push($cards, $card);
+            }
         }
         return $cards;
+    }
 
+    /**
+     * Get Deck Count
+     * Public method get card count
+     *
+     * @param none
+     * @return int
+     */
+    public function deckCount(): int
+    {
+        $deckCount = count($this->deck);
+
+        return $deckCount;
     }
 }

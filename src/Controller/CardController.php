@@ -55,7 +55,7 @@ class CardController extends AbstractController
      */
     public function shuffleCards(SessionInterface $session): Response
     {
-        $title = "Shuffle";
+        $title = "Deck, shuffled";
 
         $deck = $session->get('deck');
         $deck->shuffleDeck();
@@ -79,14 +79,15 @@ class CardController extends AbstractController
      */
     public function drawCard(SessionInterface $session, int $number = 1): Response
     {
-        $title = "Draw";
+        $title = "Draw card from deck";
 
         $deckObject = $session->get('deck');
         $deck = $deckObject->drawCard($number);
-
+        $deckCount = $deckObject->deckCount();
 
         $data = [
             'cards' => $deck,
+            'numberOfCards' => $deckCount,
         ];
 
         return $this->render('deck/draw_card.html.twig', [
