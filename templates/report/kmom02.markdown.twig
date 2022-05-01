@@ -1,17 +1,26 @@
+
 ### Redovisning kmom02
 
 1. __Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.__
 
-    _svar_
+    _Arv är en förlängning av andra klasser (extends) kunna använda metoder, variabler (förbehållet medlemsvariabler) i sin förälder (parent::)._
+
+    _Komposition återanvänder en annan klass genom dependency/injected genom att anropa klassen eller "inject" som en parameter i metoden. På så sätt går det att anropa den andra klassen metoder, variabler mm genom att först initiera ett objekt._
+
+    _Trait är en "modul" som kan kopieras in i flera klasser. Till exempel metoder som är återanvändbara för alla klasser (konfigurationer mm). Koden kopieras in till klassen och "blir en del av klassen"_
 
 2. __Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?__
 
-    _svar_
+    _Först och främst tog det tid att förstå hur OO Programmering faktiskt fungerar i praktiken. För mig fungerade det att se varje klass som en "fabrik" och varje "fabrik" har en unik funktion._
+
+    _Jag skapade en separat klass för repsektive funktion Card (skapar en array med nycklar 'suit', 'rank', 'value' vilket förenklat är ett kort), Deck (skapar en kortlek mha Card, funktioner för att hämta kortlek, dra kort mm.), Deck2 (förlängning (arv) på Deck och lägger till två Jokrar i kortleken), Players (klass för att skapa spelare och hålla koll på respektive spelares hand)._
+
+    _I sin helhet är jag nöjd med implementationen och försökt undvika beroende (dependencies). Förbättringspotential finns i att "banta" koden samt addera kontrollfunktioner på respektive metod. Det går säkert även att uteckla(/förbättra datastrukturen i hur objekten lagras._
 
 3. __Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?__
 
-    _svar_
+    _Inte utfört. Lämnar till kmom03_
 
 4. __Vilken är din TIL för detta kmom?__
 
-    _svar_
+    _Framförallt hur olika klasser hänger ihop och hur de skapar beroenden/arv! Samt en uppfräschning av post, get, session, och request._
