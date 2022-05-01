@@ -123,7 +123,7 @@ class CardController extends AbstractController
     }
 
     /**
-     * @Route("/card/api/deck", name="api_deck")
+     * @Route("/card/api/deck", name="api-deck")
      */
     public function renderJson(): Response
     {
