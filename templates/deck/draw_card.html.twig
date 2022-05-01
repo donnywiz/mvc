@@ -8,6 +8,10 @@
 
 <h1> {{ title }} </h1>
 
+<p>
+    <h4>Cards left in deck: {{ data.numberOfCards }}</h4>
+</p>
+
 {% for object in data.cards %}
     <p>
         #{{ loop.index }}
