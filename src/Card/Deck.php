@@ -1,13 +1,7 @@
 <?php
 
 namespace App\Card;
-
 use App\Card\Card;
-
-// use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-// use Symfony\Component\HttpFoundation\Response;
-// use Symfony\Component\HttpFoundation\Request;
-// use Symfony\Component\Routing\Annotation\Route;
 
 class Deck
 {
@@ -76,12 +70,12 @@ class Deck
      * @param none
      * @return void
      */
-    public function shuffleDeck(): void
+    public function shuffleDeck(Card $card): void
     {
-        if (count($this->deck) < 51) {
-            echo "cant shuffle deck, too few cards";
-        }
-        else {
+        if ($this->deckCount() < 52) {
+            $this->createDeck($card);
+            shuffle($this->deck);
+        } else {
             shuffle($this->deck);
         }
     }

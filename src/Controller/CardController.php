@@ -37,6 +37,7 @@ class CardController extends AbstractController
         # inject object to class/method
         $deckObject->createDeck($cardObject);
         $session->set("deck", $deckObject);
+        $session->set("cardObject", $cardObject);
 
         $deck = $deckObject->getDeck();
 
@@ -57,8 +58,10 @@ class CardController extends AbstractController
     {
         $title = "Deck, shuffled";
 
+        $card = $session->get('cardObject');
         $deck = $session->get('deck');
-        $deck->shuffleDeck();
+
+        $deck->shuffleDeck($card);
         $shuffledDeck = $deck->getDeck();
 
 
@@ -97,33 +100,32 @@ class CardController extends AbstractController
     }
 
     /**
-     * @Route("/card/deck/deal/{players}/{cards}", name="deal_players")
+     * @Route("/card/deck2", name="deck2", methods={"GET", "HEAD"})
      */
-    public function dealPlayers(int $players = 1, int $cards = 1): Response
+    public function deck2(SessionInterface $session): Response
     {
-        $title = "Deal " . $players ." players ". $cards . " cards";
+        $title = "Deck with 2 harlequins, unshuffled and sorted";
 
-        return $this->render('deck/card.html.twig', [
+        # initialize objects
+        $cardObject = $session->get('cardObject');
+        $deck2Object = new \App\Card\Deck2($cardObject);
+
+        $deck = $deck2Object->getDeck();
+
+        $data = [
+            'showDeck' => $deck,
+        ];
+
+        return $this->render('deck/deck2.html.twig', [
             'title' => $title,
-        ]);
-    }
-
-    /**
-     * @Route("/card/deck2", name="deck2")
-     */
-    public function deck2(): Response
-    {
-        $title = "Deck2";
-
-        return $this->render('deck/card.html.twig', [
-            'title' => $title,
+            'data' => $data,
         ]);
     }
 
     /**
      * @Route("/card/api/deck", name="api_deck")
      */
-    public function getDeck(): Response
+    public function renderJson(): Response
     {
         $title = "Deck";
 
@@ -133,7 +135,7 @@ class CardController extends AbstractController
 
         # inject object to class/method
         $deckObject->createDeck($cardObject);
-        $data = $decObjectk->showDeck();
+        $data = $deckObject->getDeck();
 
         return $this->json($data);
     }

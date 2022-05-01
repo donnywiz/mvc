@@ -51,7 +51,7 @@ class ReportController extends AbstractController
     public function kmom(string $mom): Response
     {
         $title = "kmom" . $mom;
-        $page = 'kmom' . $mom . ".markdown.twig";
+        $page = 'kmom' . $mom;
 
         return $this->render('kmom.html.twig', [
             'title' => $title,
