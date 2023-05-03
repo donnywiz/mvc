@@ -1,7 +1,4 @@
 {
-    "dflydev/dot-access-data": {
-        "version": "v3.0.1"
-    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -27,12 +24,12 @@
         "version": "v0.5.3"
     },
     "doctrine/doctrine-bundle": {
-        "version": "2.6",
+        "version": "2.9",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "2.4",
-            "ref": "ddddd8249dd55bbda16fa7a45bb7499ef6f8e90e"
+            "ref": "013b823e7fee65890b23e40f31e6667a1ac519ac"
         },
         "files": [
             "config/packages/doctrine.yaml",
@@ -80,32 +77,11 @@
     "egulias/email-validator": {
         "version": "3.1.2"
     },
-    "friendsofphp/proxy-manager-lts": {
-        "version": "v1.0.7"
-    },
-    "laminas/laminas-code": {
-        "version": "4.5.1"
-    },
-    "league/commonmark": {
-        "version": "2.3.0"
-    },
-    "league/config": {
-        "version": "v1.1.1"
-    },
-    "league/html-to-markdown": {
-        "version": "5.1.0"
-    },
     "monolog/monolog": {
         "version": "2.4.0"
     },
     "myclabs/deep-copy": {
         "version": "1.11.0"
-    },
-    "nette/schema": {
-        "version": "v1.2.2"
-    },
-    "nette/utils": {
-        "version": "v3.2.7"
     },
     "nikic/php-parser": {
         "version": "v4.13.2"
@@ -461,9 +437,6 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.25.0"
     },
-    "symfony/polyfill-php81": {
-        "version": "v1.25.0"
-    },
     "symfony/process": {
         "version": "v6.0.7"
     },
@@ -472,9 +445,6 @@
     },
     "symfony/property-info": {
         "version": "v6.0.7"
-    },
-    "symfony/proxy-manager-bridge": {
-        "version": "v6.0.6"
     },
     "symfony/routing": {
         "version": "6.0",
@@ -591,18 +561,6 @@
             "config/routes/web_profiler.yaml"
         ]
     },
-    "symfony/webapp-meta": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "67cae591d131c133d63b893c5324796b88c59b34"
-        },
-        "files": [
-            "config/packages/messenger.yaml"
-        ]
-    },
     "symfony/webapp-pack": {
         "version": "1.1",
         "recipe": {
@@ -641,9 +599,6 @@
         "version": "1.2.1"
     },
     "twig/extra-bundle": {
-        "version": "v3.3.8"
-    },
-    "twig/markdown-extra": {
         "version": "v3.3.8"
     },
     "twig/twig": {
