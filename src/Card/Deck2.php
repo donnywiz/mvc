@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Card;
+
 use App\Card\Card;
 
 class Deck2 extends Deck
 {
-
     private $deck2;
 
 
@@ -36,7 +36,6 @@ class Deck2 extends Deck
             $this->deck2[] = $harlequin;
             $i++;
         } while ($i < 2);
-
     }
 
     /**
@@ -47,7 +46,6 @@ class Deck2 extends Deck
      */
     public function addDeck(): void
     {
-
         $this->deck2 = [];
         $this->deck2 = parent::createDeck();
         $harlequins = ['harlequin', 'harlequin'];

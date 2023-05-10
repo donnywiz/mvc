@@ -8,10 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
 class PlayerController extends AbstractController
 {
-
     /**
      * @Route("/card/deck/deal/{players}/{cards}", name="deal_players")
      */

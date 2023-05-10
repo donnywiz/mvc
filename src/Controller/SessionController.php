@@ -55,5 +55,4 @@ class SessionController extends AbstractController
         $this->addFlash('notice', "Hello World!");
         return $this->redirectToRoute('post-session');
     }
-
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Card;
+
 use App\Card\Deck;
 
 class Players
@@ -16,7 +17,6 @@ class Players
     public function __construct(int $numberOfPlayers = 1)
     {
         for ($i = 1; $i < $numberOfPlayers + 1; $i++) {
-
             $name = "Player " . $i;
             array_push($this->players, $name);
             $this->cardhand = array(
@@ -35,10 +35,8 @@ class Players
     public function addCards(Deck $add, int $numberOfCards): void
     {
         foreach ($this->players as $player) {
-
             $cards = $add->drawCard($numberOfCards);
             $this->cardhand[$player] = $cards;
-
         }
         // var_dump($this->cardhand);
     }
@@ -65,5 +63,4 @@ class Players
     {
         return $this->players;
     }
-
 }

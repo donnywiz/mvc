@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CardGraphic extends Card
 {
-
     public function __construct()
     {
     }
-
 }

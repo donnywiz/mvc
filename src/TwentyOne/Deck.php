@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Card;
+namespace App\TwentyOne;
 
-use App\Card\Card;
+use App\TwentyOne\Card;
 
 class Deck
 {
     private $deck = [];
-
 
     /**
      * Constructor method to create an empty array deck
@@ -20,8 +19,6 @@ class Deck
     {
         $this->deck = [];
     }
-
-
 
     /**
      * Create deck.
@@ -65,7 +62,7 @@ class Deck
      * Shuffles deck by calling method shuffle.
      * If len of array deck is less than 52, create new deck.
      *
-     * @param none
+     * @param Card card
      * @return void
      */
     public function shuffleDeck(Card $card): void
@@ -80,9 +77,9 @@ class Deck
 
     /**
      * Draw card from deck.
-     * Method to draw a signle card from deck.
+     * Draws a signle card from deck and returns as an array
      *
-     * @param none
+     * @param int numberOfCards
      * @return array
      */
     public function drawCard(int $numberOfCards = 1): array
@@ -90,19 +87,20 @@ class Deck
         $cards = [];
 
         for ($i = 0; $i < $numberOfCards; $i++) {
-            if ($this->deckCount() == 0) {
-                break;
-            } else {
+            if ($this->deckCount() > 0) {
                 $card = array_shift($this->deck);
                 array_push($cards, $card);
+            } else {
+                break;
             }
+
+            return $cards;
         }
-        return $cards;
     }
 
     /**
      * Get Deck Count
-     * Public method get card count
+     * Returns number of cards in deck as an integer
      *
      * @param none
      * @return int
