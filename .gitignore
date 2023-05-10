@@ -8,6 +8,7 @@
 /var/
 /vendor/
 /.DS_STORE
+/src/TwentyOne/pseudo
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
