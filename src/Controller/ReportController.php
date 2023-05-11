@@ -45,6 +45,18 @@ class ReportController extends AbstractController
     }
 
     /**
+     * @Route("/game", name="game")
+     */
+    public function twentyone(): Response
+    {
+        $title = "Tjugoett";
+
+        return $this->render('twentyone/intro.html.twig', [
+            'title' => $title,
+        ]);
+    }
+
+    /**
      * @Route("/report/kmom/{mom}", name="kmom")
      */
 
